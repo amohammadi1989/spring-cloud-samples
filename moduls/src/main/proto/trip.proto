@@ -1,0 +1,17 @@
+syntax="proto3";
+package trip;
+
+option  java_package="main.java.test.trip";
+option java_multiple_files=true;
+
+message TripRequest{
+  int32 distanceTraveled=1;
+}
+message TripResponse{
+  int32 remainingDistance=1;
+  int32 timeToDestination=2;
+}
+
+service NavigationService{
+ rpc navigate(stream TripRequest) returns (TripResponse){};
+}

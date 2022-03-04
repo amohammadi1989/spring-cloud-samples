@@ -1,0 +1,57 @@
+server:
+  port: 80
+spring:
+  application:
+    name: api-getway
+  cloud:
+    gateway:
+      routes:
+        - id: service1
+          uri: lb://SERVICE1
+          predicates:
+            - Path=/service1/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: service1CircuitBreaker
+                fallbackUri: forward:/fallback/service
+        - id: service2
+          uri: lb://server1
+          predicates:
+            - Path=/service2/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: service2CircuitBreaker
+                fallbackUri: forward:/fallback/service
+            - name: Retry
+              args:
+                retries: 3
+                method: GET
+                backoff:
+                  firstBackoff: 50ms
+                  maxBackoff: 500ms
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    enabled: true
+    healthcheck:
+      enabled: true
+    service-url:
+      default-zone: http://localhost:8761/eureka
+    registry-fetch-interval-seconds: 2
+  instance:
+    instance-id: ${spring.application.name}:${server.port}
+    ip-address: localhost
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 2
+    lease-expiration-duration-in-seconds: 2
+
+management:
+  endpoints:
+    health:
+      show-details: always
+    web:
+      exposure:
+        include: "*"

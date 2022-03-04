@@ -1,0 +1,24 @@
+server:
+  port: 81
+spring:
+  application:
+    name: SERVICE1
+  h2:
+    console:
+      path: /h2
+      enabled: true
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    enabled: true
+    healthcheck:
+      enabled: true
+    service-url:
+      default-zone: http://localhost:8761/eureka
+  instance:
+    instance-id: ${spring.application.name}:${server.port}
+    ip-address: localhost
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 2
+    lease-expiration-duration-in-seconds: 2

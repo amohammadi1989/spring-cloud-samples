@@ -1,0 +1,26 @@
+syntax="proto3";
+package namebasic;
+
+option java_package="main.java.test.namebasic";
+option java_multiple_files=true;
+
+  message Request{
+    int32 page=1;
+  }
+
+  message ItemName{
+    string nconst=1;
+    string primaryName=2;
+    string birthYear=3;
+    string deathYear=4;
+    string primaryProfession=5;
+    string knownForTitles=6;
+  }
+  message ResponseItem{
+    int32 count=1;
+    repeated ItemName itemName=2;
+  }
+
+  service BasicTitleService{
+     rpc getTitleService(Request) returns (stream ResponseItem) {};
+  }

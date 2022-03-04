@@ -1,0 +1,42 @@
+1)create service1 basic
+2)create service2 basic
+3)create eureka discovery basic
+4)create api gateway
+5)call service from gateway
+6)config circle breaker when service is unavailable
+7)run prometeus in docker for show  monitor in services ==> run -p 9090:9090 -v /p.yml prometeus:v2
+8)run grafana in docker for create dashboard monitor  ==> run -p 3000:3000 grafana/grafana:latest
+9)add compound in section edit config for run multiple project in same time
+10)set config between between eureka and service with interval specific
+11)add healths check to all services for mange state
+12)set config between eureka and gateway
+13)call domain internal with feign client
+14)used from netflix ribbon for client LOAD BALANCINg without discovery
+15)used from netflix ribbon for client lb with discovery and set time refresh
+16)used from feign client with ribbon when use from eureka
+17)config jpa with h2 in memory database and insert  record
+18)used form spring cloud config for centralize config
+19)installed mongodb over docker with port 27017 ==>docker run -it -d --name mongo-container -p 27017:27017 --restart always -v mongodb_data_container:/data/db mongo:3.6
+20)used from mongo db in spring boot sample
+21)used from this command for run shell docker exec -it <mycontainer> bash
+22)tutorials create branch in git for group working
+23)create sample form reactive programing fetch from database
+24)learn basic transaction managment in reactive programing
+25)used basic graphql in service1 for  flexible query of book entity
+26)change default url of graphql
+27) run redis server  in docker ==>docker run --name dockerredis -d redis
+28)use form redis desktop manger for manage clint
+29)used from redis with jedis client cache info
+30)used form jedis for transaction management
+31)used form anotation spring boot cache redis for example cacheable,put,evict
+32)use form bloomrpc for connect to grpc server and send request
+33)created example of grpcserver client stream sum multirequest,server steam page record ,
+bidirectional example of trip,unary sample basic
+34)config basic config rabbitmq with docker==>docker run -it -p 15672:15672 -p 5672:5672 rmq:latest
+35)use form load for import image manually in docker ===> docker load -i ibm_datapower.tar
+36)stream message with rabittmq and kafka stateless and stateful
+37)learn projection in spring data for map form entity to dto when model is different
+34)bach processing
+35)config kafka,zookeeper with 2 partition in one note
+36)use form offset explorer for managment of kafka
+37)For kill all stop containers used of command ==> docker container prune

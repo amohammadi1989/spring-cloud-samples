@@ -1,0 +1,28 @@
+syntax="proto3";
+package user;
+
+option java_package="main.java.test.user";
+option java_multiple_files=true;
+
+message UserRequest{
+  string name=1;
+}
+
+message User{
+ int64 id=1;
+ string name=2;
+ string lastName=3;
+}
+
+message UserResponse{
+  int32 count=1;
+  int32 pageCount=2;
+  repeated User users=3;
+}
+
+
+
+service UserService{
+ rpc getUsers(UserRequest) returns (UserResponse) {};
+ rpc getUsersWithPage(UserRequest) returns (stream UserResponse) {};
+}

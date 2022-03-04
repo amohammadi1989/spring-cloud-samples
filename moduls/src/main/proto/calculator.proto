@@ -1,0 +1,20 @@
+syntax="proto3";
+package calculator;
+
+option java_package="main.java.test.calculator";
+option java_multiple_files=true;
+
+message Input{
+ int32 number=1;
+}
+
+message Output{
+ int64 result=1;
+}
+
+service CalculatorService{
+ rpc find(Input) returns (Output) {};
+ rpc getAll(Input) returns (stream Output) {};
+ rpc sumAll(stream Input) returns (Output) {};
+ rpc play(stream Input) returns (stream Output) {};
+}
