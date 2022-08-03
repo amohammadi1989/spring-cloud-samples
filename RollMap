@@ -40,3 +40,4 @@ bidirectional example of trip,unary sample basic
 35)config kafka,zookeeper with 2 partition in one note
 36)use form offset explorer for managment of kafka
 37)For kill all stop containers used of command ==> docker container prune
+38)use form docker system prune for stop and remove all prune in docker 
